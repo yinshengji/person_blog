@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Future Imperfect by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="#">博客 Blog</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#">每日新闻</a></li>
+								<li><a href="#">阅读</a></li>
+								<li><a href="#">漫画算法</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+							<!-- Post -->
+							<article class="post_detail">
+								<header>
+									<div class="title">
+										<h2><a href="#">漫画算法：最小栈的实现</a></h2>
+										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">November 1, 2015</time>
+										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<p>####1.原型不定式（使役动词）</p>
+
+<p>1）使/让&hellip;</p>
+
+<pre><code>语法：let/have/make 宾语 动词原型
+例句：I let him go 我让他走了
+</code></pre>
+
+<p>2）get help做使役动词</p>
+
+<pre><code>语法：
+get(让/使) + 宾语 + to + 动词
+help(帮助) + 宾语 + (to) + 动词
+例句：
+I can't get anyone to do the work properly. //我找不到合适的人去做这件事
+I helped him (to) repair the car. //我帮他修理了小轿车
+</code></pre>
+
+<p>3)末尾的动词变过去分词</p>
+
+<pre><code>语法：
+get/make + 宾语 + 动词的过去分词
+让某物/某人被别人。。
+例句：
+I must get my hair cut.
+He could't make himself heard. //他不能让自己被听到
+Can you get the work finished in time? //你能让工作被别人按时完成吗
+</code></pre>
+
+<p>####2.感官动词
+1）see/watch/observe/notice/hear/smell/ taste feel + 宾语 + 动词原型/现在分词</p>
+
+<pre><code>a)+ 动词原型， 表示动作的真实性
+I saw him work in the gardon yesterday
+b)+ 现在分词， 表示动作的连续性
+I saw hom working in the gardon yesterday
+c）+ 过去分词 表示被动语态
+John saw the man knocked down by the car
+</code></pre>
+							</article>
+
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+			<script>
+			$(document).ready(function(){
+				$.get("http://127.0.0.1:9998/api/articleList",function(data, status){
+						//alert("Data: " + data.error.error_id + "\nStatus: " + status);
+						htmlContent = '';
+						data.data.forEach(function(row, index) {
+							htmlContent += '<article class="post">';
+							htmlContent += '<header>';
+								htmlContent += '<div class="title">';
+									htmlContent += '<h2><a href="#">' + row.title + '</a></h2>';
+									htmlContent +='<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>';
+								htmlContent += '</div>';
+								htmlContent += '<div class="meta">';
+								htmlContent += '<time class="published" datetime="2015-11-01">November 1, 2015</time>';
+								htmlContent += '<a href="#" class="author"><span class="name">' + row.author + '</span><img src="images/avatar.jpg" alt="" /></a>';
+								htmlContent += '</div>';
+
+							htmlContent += '</header>';
+							htmlContent += '<p>' + data['data'][0]['abstract'] + '</p>';
+							htmlContent += '</article>';
+						});
+
+						$("div#main").html(htmlContent);
+
+				});
+			});
+			</script>
+	</body>
+</html>
