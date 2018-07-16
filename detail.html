@@ -129,7 +129,7 @@
             var id = $.getUrlParam('id');
 
 						//2.获取数据
-						$.post("http://127.0.0.1:9999/?type=Api00002", {"id":id}, function(data){
+						$.post("http://123.206.17.77:9999/?type=Api00002", {"id":id}, function(data){
 								//alert("Data: " + data.error.error_id + "\nStatus: " + status);
 								console.log(data);
 								htmlContent = data.data.articles.content;
