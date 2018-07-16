@@ -103,8 +103,45 @@
 										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
 									</div>
 								</header>
-								<!-- 内容展示 -->
-								<div id="content"></div>
+								<p>####1.原型不定式（使役动词）</p>
+
+<p>1）使/让&hellip;</p>
+
+<pre><code>语法：let/have/make 宾语 动词原型
+例句：I let him go 我让他走了
+</code></pre>
+
+<p>2）get help做使役动词</p>
+
+<pre><code>语法：
+get(让/使) + 宾语 + to + 动词
+help(帮助) + 宾语 + (to) + 动词
+例句：
+I can't get anyone to do the work properly. //我找不到合适的人去做这件事
+I helped him (to) repair the car. //我帮他修理了小轿车
+</code></pre>
+
+<p>3)末尾的动词变过去分词</p>
+
+<pre><code>语法：
+get/make + 宾语 + 动词的过去分词
+让某物/某人被别人。。
+例句：
+I must get my hair cut.
+He could't make himself heard. //他不能让自己被听到
+Can you get the work finished in time? //你能让工作被别人按时完成吗
+</code></pre>
+
+<p>####2.感官动词
+1）see/watch/observe/notice/hear/smell/ taste feel + 宾语 + 动词原型/现在分词</p>
+
+<pre><code>a)+ 动词原型， 表示动作的真实性
+I saw him work in the gardon yesterday
+b)+ 现在分词， 表示动作的连续性
+I saw hom working in the gardon yesterday
+c）+ 过去分词 表示被动语态
+John saw the man knocked down by the car
+</code></pre>
 							</article>
 
 					</div>
@@ -118,23 +155,29 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 			$(document).ready(function(){
-						//1.获取id
-						(function ($) {
-                $.getUrlParam = function (name) {
-                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                    var r = window.location.search.substr(1).match(reg);
-                    if (r != null) return unescape(r[2]); return null;
-                }
-            })(jQuery);
-            var id = $.getUrlParam('id');
+				$.get("http://127.0.0.1:9998/api/articleList",function(data, status){
+						//alert("Data: " + data.error.error_id + "\nStatus: " + status);
+						htmlContent = '';
+						data.data.forEach(function(row, index) {
+							htmlContent += '<article class="post">';
+							htmlContent += '<header>';
+								htmlContent += '<div class="title">';
+									htmlContent += '<h2><a href="#">' + row.title + '</a></h2>';
+									htmlContent +='<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>';
+								htmlContent += '</div>';
+								htmlContent += '<div class="meta">';
+								htmlContent += '<time class="published" datetime="2015-11-01">November 1, 2015</time>';
+								htmlContent += '<a href="#" class="author"><span class="name">' + row.author + '</span><img src="images/avatar.jpg" alt="" /></a>';
+								htmlContent += '</div>';
 
-						//2.获取数据
-						$.post("http://127.0.0.1:9999/?type=Api00002", {"id":id}, function(data){
-								//alert("Data: " + data.error.error_id + "\nStatus: " + status);
-								console.log(data);
-								htmlContent = data.data.articles.content;
-								$("div#content").html(htmlContent);
+							htmlContent += '</header>';
+							htmlContent += '<p>' + data['data'][0]['abstract'] + '</p>';
+							htmlContent += '</article>';
 						});
+
+						$("div#main").html(htmlContent);
+
+				});
 			});
 			</script>
 	</body>
