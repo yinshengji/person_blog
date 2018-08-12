@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main1.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -241,17 +241,7 @@
 						htmlContent = '';
 						data.data.articles.forEach(function(row, index) {
 							htmlContent += '<article class="post">';
-							htmlContent += '<header>';
-								htmlContent += '<div class="title">';
-									htmlContent += '<h2><a href="#">' + row.title + '</a></h2>';
-									htmlContent +='<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>';
-								htmlContent += '</div>';
-								htmlContent += '<div class="meta">';
-								htmlContent += '<time class="published" datetime="2015-11-01">November 1, 2015</time>';
-								htmlContent += '<a href="#" class="author"><span class="name">' + row.author + '</span><img src="images/avatar.jpg" alt="" /></a>';
-								htmlContent += '</div>';
-
-							htmlContent += '</header>';
+							htmlContent += '<p style="font-size: 1.5em;"><b>' + row.title + '</b></p><hr/>';
 							htmlContent += '<p>' + row.abstract + '</p>';
 							htmlContent += '<footer>';
 								htmlContent += '<ul class="actions">';

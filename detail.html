@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main1.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
@@ -90,23 +90,12 @@
 
 				<!-- Main -->
 					<div id="main">
-
 							<!-- Post -->
 							<article class="post_detail">
-								<header>
-									<div class="title">
-										<h2><a href="#">漫画算法：最小栈的实现</a></h2>
-										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-									</div>
-									<div class="meta">
-										<time class="published" datetime="2015-11-01">November 1, 2015</time>
-										<a href="#" class="author"><span class="name">Jane Doe</span><img src="images/avatar.jpg" alt="" /></a>
-									</div>
-								</header>
+								<p style="font-size: 1.5em"><b id="title"></b></p><hr/>
 								<!-- 内容展示 -->
 								<div id="content"></div>
 							</article>
-
 					</div>
 			</div>
 
@@ -131,7 +120,9 @@
 				$.post("http://123.206.17.77:9999/?type=Api00002", {"id":id}, function(data){
 						//alert("Data: " + data.error.error_id + "\nStatus: " + status);
 						console.log(data);
+						title = data.data.articles.title;
 						htmlContent = data.data.articles.content;
+						$("#title").html(title);
 						$("div#content").html(htmlContent);
 				});
 			});
