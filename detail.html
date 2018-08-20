@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Future Imperfect by HTML5 UP</title>
+		<title>文章详情</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -118,10 +118,9 @@
             var id = $.getUrlParam('id');
 				//2.获取数据
 				$.post("http://123.206.17.77:9999/?type=Api00002", {"id":id}, function(data){
-						//alert("Data: " + data.error.error_id + "\nStatus: " + status);
-						console.log(data);
-						title = data.data.articles.title;
+				    	title = data.data.articles.title;
 						htmlContent = data.data.articles.content;
+						$('title').text(title);
 						$("#title").html(title);
 						$("div#content").html(htmlContent);
 				});
