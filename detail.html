@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="keywords" content="Go语言笔记,Go,Golang,Go语言,Go框架,文章,开源项目">
 		<meta name="description" content="Go语言笔记，中国 Golang 社区，Go语言学习园地，致力于构建完善的 Golang 中文社区，Go语言爱好者的学习家园。分享 Go 语言知识，交流使用经验">
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main1.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main1.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 
@@ -102,15 +102,16 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/assets/js/main.js"></script>
 			<script>
+			/*
 			$(document).ready(function(){
 						//1.获取id
-						(function ($) {
+				(function ($) {
                 $.getUrlParam = function (name) {
                     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
                     var r = window.location.search.substr(1).match(reg);
@@ -118,15 +119,26 @@
                 }
             })(jQuery);
             var id = $.getUrlParam('id');
+            */
+			$(document).ready(function () {
+			    //1.获取id
+				(function ($) {
+					$.getId = function () {
+						var url = location.pathname;
+						var urls = url.split("/");
+						return parseInt(urls.pop());
+					}
+				})(jQuery);
+				var id = $.getId();
 				//2.获取数据
 				$.post("http://123.206.17.77:9999/?type=Api00002", {"id":id}, function(data){
-				    	title = data.data.articles.title;
+						title = data.data.articles.title;
 						htmlContent = data.data.articles.content;
 						$('title').text(title);
 						$("#title").html(title);
 						$("div#content").html(htmlContent);
 				});
-			});
+            });
 			</script>
 	</body>
 </html>

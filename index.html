@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="keywords" content="Go语言笔记,Go,Golang,Go语言,Go框架,文章,开源项目">
 		<meta name="description" content="Go语言笔记，中国 Golang 社区，Go语言学习园地，致力于构建完善的 Golang 中文社区，Go语言爱好者的学习家园。分享 Go 语言知识，交流使用经验">
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main1.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 8]><script src="/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/assets/css/main1.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="/assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 
@@ -230,16 +230,14 @@
 				<center>©2018 版权所有 <a href="http://www.miitbeian.gov.cn">京ICP备18038512号</a></center>
 			</footer>
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+			<script src="/assets/js/jquery.min.js"></script>
+			<script src="/assets/js/skel.min.js"></script>
+			<script src="/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/assets/js/main.js"></script>
 			<script>
 			$(document).ready(function(){
 				$.post("http://123.206.17.77:9999/?type=Api00001", {"page":0, "pageCnt":7}, function(data){
-						//alert("Data: " + data.error.error_id + "\nStatus: " + status);
-						console.log(data);
 						htmlContent = '';
 						data.data.articles.forEach(function(row, index) {
 							htmlContent += '<article class="post">';
@@ -247,7 +245,7 @@
 							htmlContent += '<p>' + row.abstract + '</p>';
 							htmlContent += '<footer>';
 								htmlContent += '<ul class="actions">';
-									htmlContent += '<li><a href="./detail.html?id=' + row.id + '" class="button big">Continue Reading</a></li>';
+									htmlContent += '<li><a href="/article/' + row.id + '" class="button big">Continue Reading</a></li>';
 								htmlContent += '</ul>';
 								htmlContent += '<ul class="stats">';
 									htmlContent += '<li><a href="#">General</a></li>';
