@@ -237,7 +237,7 @@
 			<script src="/assets/js/main.js"></script>
 			<script>
 			$(document).ready(function(){
-				$.post("http://123.206.17.77:9999/?type=Api00001", {"page":0, "pageCnt":7}, function(data){
+				$.post("http://api.gocoder.cn/?type=Api00001", {"page":0, "pageCnt":7}, function(data){
 						htmlContent = '';
 						data.data.articles.forEach(function(row, index) {
 							htmlContent += '<article class="post">';

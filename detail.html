@@ -137,7 +137,7 @@
 				})(jQuery);
 				var id = $.getId();
 				//2.获取数据
-				$.post("http://123.206.17.77:9999/?type=Api00002", {"id":id}, function(data){
+				$.post("http://api.gocoder.cn/?type=Api00002", {"id":id}, function(data){
 						title = data.data.articles.title;
 						htmlContent = data.data.articles.content;
 						$('title').text(title);
